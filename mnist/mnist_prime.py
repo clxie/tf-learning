@@ -61,3 +61,5 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
 result = sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})
 print("训练后模型的准确率为：%s" % result)
+
+
