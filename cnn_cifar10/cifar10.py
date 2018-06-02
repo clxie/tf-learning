@@ -45,7 +45,7 @@ import tensorflow.python.platform
 from six.moves import urllib
 import tensorflow as tf
 
-from cifar10_cnn import cifar10_input
+from cnn_cifar10 import cifar10_input
 
 FLAGS = tf.app.flags.FLAGS
 

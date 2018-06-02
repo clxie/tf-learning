@@ -50,7 +50,7 @@ import tensorflow as tf
 import sys
 
 sys.path.append("../")
-from cifar10_cnn import cifar10
+from cnn_cifar10 import cifar10
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -65,6 +65,7 @@ tf.app.flags.DEFINE_boolean('log_device_placement', False,
 
 def train():
     """Train CIFAR-10 for a number of steps."""
+    # 创建默认的数据流图
     with tf.Graph().as_default():
         global_step = tf.Variable(0, trainable=False)
 
@@ -100,7 +101,7 @@ def train():
         tf.train.start_queue_runners(sess=sess)
 
         summary_writer = tf.summary.FileWriter(FLAGS.train_dir,
-                                                graph_def=sess.graph_def)
+                                               graph_def=sess.graph_def)
 
         for step in xrange(FLAGS.max_steps):
             start_time = time.time()
@@ -130,10 +131,13 @@ def train():
 
 
 def main(argv=None):  # pylint: disable=unused-argument
+    # 下载cifar10的原始数据(目录：/tmp/cifar10_data)
     cifar10.maybe_download_and_extract()
+    # 创建训练的目录（/tmp/cifar10_train）
     if gfile.Exists(FLAGS.train_dir):
         gfile.DeleteRecursively(FLAGS.train_dir)
     gfile.MakeDirs(FLAGS.train_dir)
+    # 开始训练
     train()
 
 

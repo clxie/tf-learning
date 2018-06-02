@@ -50,7 +50,7 @@ from tensorflow.python.platform import gfile
 import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
-from cifar10_cnn import cifar10
+from cnn_cifar10 import cifar10
 
 # pylint: disable=unused-import,g-bad-import-order
 

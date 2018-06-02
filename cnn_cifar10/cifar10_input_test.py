@@ -25,7 +25,7 @@ import tensorflow.python.platform
 
 import tensorflow as tf
 
-from cifar10_cnn import cifar10_input
+from cnn_cifar10 import cifar10_input
 
 
 class CIFAR10InputTest(tf.test.TestCase):
