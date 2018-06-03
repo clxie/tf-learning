@@ -140,4 +140,6 @@ for i in range(1000):
         print("step %d, training accuracy %g" % (i, train_accuracy))
     train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 
+tf.summary.FileWriter("/tmp/tensorboard/mnist", sess.graph)
+
 print("多层神经网络改善训练模型的准确率为 %g" % accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))

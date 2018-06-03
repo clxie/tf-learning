@@ -53,6 +53,7 @@ for i in range(1000):
     batch_xs, batch_ys = mnist.train.next_batch(100)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
+
 # tf.arg_max用于返回y数组中其中数值最大的值所在的索引
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 print("correct_prediction: %s" % correct_prediction)
